@@ -1,17 +1,16 @@
-
-let db = firebase.firestore();
-let storageRef = firebase.storage().ref("post/");
-
-let filesArray = [];
-let imageArray = [];
-let topic= "";
+let db=firebase.firestore();
+let imageArray=[];
+let storageRef=firebase.storage().ref("post/");
 let imagenameArray=[];
 let selectedFiles, numberOfFiles = 0;
+let state=document.getElementById("state");
+let name=document.getElementById("hotel-name");
+let desc=document.getElementById("hotel-desc");
+let price=document.getElementById("price");
+let rooms=document.getElementById("rooms");
+let arooms=document.getElementById("arooms");
+document.getElementById("post").addEventListener('click',function (){
 
-document.getElementById("post").addEventListener('click',function () {
-    filesArray = [];
-    imageArray = [];
-    imagenameArray=[];
     selectedFiles = document.getElementById("inputFile").files;
     numberOfFiles = selectedFiles.length;
 
@@ -35,10 +34,6 @@ document.getElementById("post").addEventListener('click',function () {
 
                 if (type_name === "png" || type_name === "jpg" || type_name === "jpeg")
                     imageArray.push(downloadURL);
-                else {
-                    let fileArrayData = {"name": file_name, "url": downloadURL};
-                    filesArray.push(fileArrayData);
-                }
 
                 count++;
                 if(count === numberOfFiles)
@@ -47,25 +42,22 @@ document.getElementById("post").addEventListener('click',function () {
         });
     }
 });
-
 function sendData() {
-    let postTitle = document.getElementById("title").value;
-    let postBody = document.getElementById("content").value;
-        topic="topvacation";
-
-    db.collection(topic).doc(postTitle).set({
-        title: postTitle,
-        description : postBody,
-        img_urls : imageArray,
-        id:topic,
+    db.collection((state.value)+"-hotel").add({
+        name:name.value,
+        description:desc.value,
+        price:price.value,
+        image:imageArray,
         imageName:imagenameArray,
-        time :firebase.firestore.FieldValue.serverTimestamp(),
-
+        TotalRooms:rooms.value,
+        AvailableRooms:arooms.value,
+        rating:0,
     });
 }
-
 function phoneContentChange(val){
     document.getElementById("phone_content").innerHTML=val;}
+function phoneStateChange(val){
+    document.getElementById("phone_state").innerHTML=val;}
 
 function phoneTitleChange(val){
     document.getElementById("phone_title").innerHTML=val;}

@@ -49,15 +49,16 @@ document.getElementById("post").addEventListener('click',function () {
 });
 
 function sendData() {
+    let state=document.getElementById("state").value;
     let postTitle = document.getElementById("title").value;
     let postBody = document.getElementById("content").value;
-        topic="topvacation";
+    topic="-touristSpot";
 
-    db.collection(topic).doc(postTitle).set({
+    db.collection(state+topic).add({
         title: postTitle,
         description : postBody,
         img_urls : imageArray,
-        id:topic,
+        id:"TouristSpot",
         imageName:imagenameArray,
         time :firebase.firestore.FieldValue.serverTimestamp(),
 

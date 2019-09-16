@@ -6,14 +6,30 @@
 	     body{
 		    margin:0px;
 			padding:0px;
-			background-image: linear-gradient(#F1F1F1 ,#7CFFFD ,#F1F1F1 ,#7CFFFD );
+			background-image: linear-gradient(to right,floralwhite, #93F6FF,floralwhite,#93F6FF,floralwhite);
+		 }
+		 .nav-color{
+
+			 background: linear-gradient(to right,#FFDCE9 , #30BBB3 ,#30BBB3,#FFDCE9 );
 		 }
 	    .lis{
 		   float:left;
-		 
 		  margin-top:2%;
 		  
 		}
+		 .lis-image{
+			 position: relative;
+             left:2%;
+			 margin-top:2%;
+             margin-left:2%;
+		 }
+		 .lis-desc{
+			 position: relative;
+			 left: 2%;
+			 top:10%;
+			 margin-top:2%;
+			 margin-left:2%;
+		 }
 		.sidedisplay{
 		   border:1px solid black;
 		   
@@ -43,7 +59,7 @@
 		}
 		.list-center{
 		    width:50%;
-		    margin-top:10%;
+		    margin-top:3%;
 		    margin-left:15%;
 		}
 
@@ -51,6 +67,7 @@
 		    border-radius:50px;
 			height:40px;
 			padding:10px;
+			font-family: 'Beth Ellen', cursive;
 		}
 		.list-ele{
 		    width:500px;
@@ -59,12 +76,44 @@
 		    font-family:fontAwesome;
 		}
         .searchbut{
-		    margin-left:48%;
+		    margin-left:47%;
 			margin-top:2%;
-			background-color:#B2FFFE ;
+			background-color:#00E8FF;
+			font-family:'Permanent Marker', cursive;
 			border-radius:10px;
 			
 		}
+		.topdest{
+			display:block;
+			margin-top: 9%;
+			font-size: 30px;
+			font-family:'Permanent Marker', cursive;
+			margin-left:36%;
+			width: 500px;
+		}
+		 .btn{
+			 padding: .5rem 1.5rem;
+			 border: none;
+			 border-radius: 4rem;
+			 background: #2b5876;
+			 color: whitesmoke;
+			 font-size: .7rem;
+			 font-family: var(--Montserrat);
+			 box-shadow: var(--primary-shadow);
+			 cursor: pointer;
+		 }
+		 .btn-nav{
+			 padding: .5rem 1.5rem;
+			 border: none;
+			 border-radius: 4rem;
+			 font-size: 1rem;
+			 font-family: var(--Montserrat);
+			 box-shadow: var(--primary-shadow);
+			 cursor: pointer;
+		 }
+       .mar-for-lis{
+		   margin-top:2%;
+	   }
 
 	 </style>
     <!-- Required meta tags -->
@@ -85,16 +134,16 @@
   <body>
       
 	   
-        <div class="navbar navbar-expand-md navbar-light bg-light sticky-top" >
+        <div class="navbar navbar-expand-md navbar-light nav-color sticky-top" >
 	   <div class="container-fluid">
 	     <a class="navbar-brand" id="insideh" href="#">NP Tourism</a>
 		 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive">
 		     <span class="navbar-toggler-icon"></span>
 		 </button>
 		 <div class="collapse navbar-collapse" id="navbarResponsive">
-		      <div class="navbar-nav ml-auto">
-			       <div class="nav-item inside dropdown show">
-				       <a class="btn bg-light dropdown-toggle nav-link" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><b>HOME</b></a>
+		      <div class="navbar-nav ml-auto ">
+			       <div class="nav-item inside dropdown show ">
+				       <a class="btn-nav dropdown-toggle nav-link" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><b>HOME</b></a>
 					    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 						    <a class="dropdown-item" href="#">Action</a>
 							<a class="dropdown-item" href="#">Action</a>
@@ -102,32 +151,27 @@
 					    </div>
 					</div>
 			        <div class="nav-item dropdown insider show">
-				       <a class="btn bg-light dropdown-toggle nav-link" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><b>EXPLORE</b></a>
+				       <a class="btn-nav dropdown-toggle nav-link" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><b>EXPLORE</b></a>
 					    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-						    <a class="dropdown-item" href="#">Action</a>
-							<a class="dropdown-item" href="#">Action</a>
-							<a class="dropdown-item" href="#">Action</a>
+						    <a class="dropdown-item" href="#">Water sports</a>
+							<a class="dropdown-item" href="#">Theme parks</a>
+							<a class="dropdown-item" href="#">Top vacation spots</a>
 					    </div>
 					</div>
 					<div class="nav-item dropdown insider show">
-				       <a class="btn bg-light dropdown-toggle nav-link" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><b>PLAN UR TRIP</b></a>
+				       <a class="btn-nav dropdown-toggle nav-link" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><b>PLAN UR TRIP</b></a>
 					    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 						    <a class="dropdown-item" href="#">2 & 3 day Itinerary</a>
-							<a class="dropdown-item" href="#">Action</a>
-							<a class="dropdown-item" href="#">Action</a>
+							<a class="dropdown-item" href="#">Tourist spots</a>
 					    </div>
 					</div>
 					<div class="nav-item dropdown insider show">
-				       <a class="btn bg-light dropdown-toggle nav-link" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><b>THINGS TO DO</b></a>
+				       <a class="btn-nav dropdown-toggle nav-link" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><b>THINGS TO DO</b></a>
 					    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
 						    <a class="dropdown-item" href="#">Action</a>
 							<a class="dropdown-item" href="#">Action</a>
 							<a class="dropdown-item" href="#">Action</a>
 					    </div>
-					</div>
-					<div class="nav-item insider">
-				       <a class="nav-link" href="#"><b>LOGIN</b></a>
-					    
 					</div>
 			  </div>
 			  
@@ -139,35 +183,127 @@
 	   
 	   <div class="search">
          	     
-		 <input class="placeicon" placeholder="&#xf007;" type="text" size="35" >
+		 <input class="placeicon" id="place" placeholder="Enter the place to search" type="text" size="35" >
 		 
 	   </div>
 	   <div >
-	   <button class="searchbut">search</button>
+	   <button class="searchbut" id="searchplace">search</button>
 	   </div>
-	   <ul class="list-group lis contop col-lg-9 list-center "> 
-	     <li class="list-group-item list-group-item-action">
-		    <img src="images/explore.jpg" width="37%" height="auto" class="lis" >
-			
-		 </li>
-	     <li class="list-group-item list-group-item-action ">
-		    <img src="images/explore.jpg " width="37%" height="auto" class="lis">			
-		 </li>
-	      <li class="list-group-item list-group-item-action">
-		    <img src="images/explore.jpg" width="37%" height="auto" class="lis">
-			
-		 </li>
-	   </ul>
-	   
+		<div class="topdest">
+			<b>Top 10 vacation Destinations</b>
+		</div>
+		<div id="main">
+	   <div class="list-group contop col-lg-9 list-center col-md-12 ">
+	     <div class="list-group-item list-group-item-action mar-for-lis">
+		    <img src="images/explore.jpg"  width="37%" height="auto" id="lisimage0" class="lis" >
+			 <p class="lis-image" id="place-name0"><b>hello</b> </p>
+			 <div class="lis-desc" >
+				 <p id="lis-desc0"></p>
+				 <button class="btn" >view details</button>
+			 </div>
+		 </div>
+	     <div class="list-group-item list-group-item-action mar-for-lis">
+		    <img src="images/explore.jpg " width="37%" height="auto" id="lisimage1" class="lis">
+			 <p class="lis-image" id="place-name1"><b>hello </b></p>
+			 <div class="lis-desc">
+				 <p  id="lis-desc1">
+				 </p>
+				 <button class="btn" >view details</button>
+			 </div>
+		 </div>
+	      <div class="list-group-item list-group-item-action mar-for-lis">
+		    <img src="images/explore.jpg" width="37%" height="auto" id="lisimage2" class="lis">
+			  <p class="lis-image" id="place-name2"><b>hello</b> </p>
+			  <div class="lis-desc">
+				  <p  id="lis-desc2">
+				  </p>
+				  <button class="btn" >view details</button>
+			  </div>
+		 </div>
+		   <div class="list-group-item list-group-item-action mar-for-lis">
+			   <img src="images/explore.jpg"  width="37%" height="auto" id="lisimage3" class="lis" >
+			   <p class="lis-image" id="place-name3"><b>hello</b></p>
+			   <div class="lis-desc">
+				   <p  id="lis-desc3">
+				   </p>
+				   <button class="btn" >view details</button>
+			   </div>
+		   </div>
+		   <div class="list-group-item list-group-item-action mar-for-lis">
+			   <img src="images/explore.jpg " width="37%" height="auto" id="lisimage4" class="lis">
+			   <p class="lis-image" id="place-name4"><b>hello</b> </p>
+			   <div class="lis-desc">
+				   <p  id="lis-desc4">
+				   </p>
+				   <button class="btn" >view details</button>
+			   </div>
+		   </div>
+		   <div class="list-group-item list-group-item-action mar-for-lis">
+			   <img src="images/explore.jpg" width="37%" height="auto" id="lisimage5" class="lis">
+			   <p class="lis-image" id="place-name5"><b>hello</b> </p>
+			   <div class="lis-desc">
+				   <p  id="lis-desc5">
+				   </p>
+				   <button class="btn" >view details</button>
+			   </div>
+		   </div>
+		   <div class="list-group-item list-group-item-action mar-for-lis">
+			   <img src="images/explore.jpg"  width="37%" height="auto" id="lisimage6" class="lis" >
+			   <p class="lis-image" id="place-name6"><b>hello </b></p>
+			   <div class="lis-desc" >
+				   <p id="lis-desc6">
+				   </p>
+				   <button class="btn" >view details</button>
+			   </div>
+		   </div>
+		   <div class="list-group-item list-group-item-action mar-for-lis">
+			   <img src="images/explore.jpg " width="37%" height="auto" id="lisimage7" class="lis">
+			   <p class="lis-image" id="place-name7"><b>hello </b></p>
+			   <div class="lis-desc">
+				   <p  id="lis-desc7">
+				   </p>
+				   <button class="btn" >view details</button>
+			   </div>
+		   </div>
+		   <div class="list-group-item list-group-item-action mar-for-lis">
+			   <img src="images/explore.jpg" width="37%" height="auto" id="lisimage8" class="lis">
+			   <p class="lis-image" id="place-name8"><b>hello </b></p>
+			   <div class="lis-desc" >
+				   <p id="lis-desc8">
+				   </p>
+				   <button class="btn" >view details</button>
+			   </div>
+
+		   </div>
+		   <div class="list-group-item list-group-item-action mar-for-lis">
+			   <img src="images/explore.jpg"  width="37%" height="auto" id="lisimage9" class="lis" >
+			   <p class="lis-image" id="place-name9"><b>hello</b> </p>
+			   <div class="lis-desc">
+				   <p  id="lis-desc9">
+				   </p>
+				   <button class="btn" >view details</button>
+			   </div>
+		   </div>
+	   </div>
+		</div>
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
-     <script src="https://www.gstatic.com/firebasejs/6.3.4/firebase-app.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
 
+		<!--Place at the end inside body in the same order-->
+		<script src="https://www.gstatic.com/firebasejs/6.2.2/firebase-app.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/6.2.2/firebase-auth.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/6.2.2/firebase-firestore.js"></script>
+		<script src="https://www.gstatic.com/firebasejs/6.2.2/firebase.js"></script>
+		<script src="scripts/firebase_initialization.js"></script>
+		<script src="scripts/places.js"></script>
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#config-web-app -->	
 
  </body>
 </html>
+
+
