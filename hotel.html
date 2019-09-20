@@ -2,28 +2,12 @@
 <html lang="en" dir="ltr">
 <head>
     <meta charset="utf-8">
-    <title>Tourist Spots</title>
+    <title>Hotels</title>
     <style>
         body{
             margin: 0;
             padding: 0;
             background: linear-gradient(to right,floralwhite, #93F6FF,floralwhite,#93F6FF,floralwhite);
-        }
-        .nav-color{
-
-            background: linear-gradient(to right,#FFDCE9 , #30BBB3 ,#30BBB3,#FFDCE9 );
-        }
-        .inside{
-            font-family: 'Beth Ellen', cursive;
-        }
-        #insideh{
-            color:#E4177B;
-            font-family: 'Beth Ellen', cursive;
-        }
-        .insider{
-
-            border-left:1px solid #E5E7E9 ;
-            font-family:'Permanent Marker', cursive;
         }
         .hotels{
             padding: 100px 0;
@@ -33,19 +17,52 @@
             text-align: center;
             padding-bottom: 25px;
         }
-        .fontstyle{
-             color:#E4177B;
-            font-family:'Permanent Marker', cursive;
-        }
         .h-img img{
-            width: 100%;
+            width: 500px;
+            height: 250px;
+
         }
         .h-img{
             position: relative;
         }
         .h-img h5{
             margin-top: 8px;
-            color: #FF007C;
+            color:  #df0e62;
+        }
+        .rating
+        {
+            margin: -10px;
+            margin-right: 1px;
+            margin-top: 4px;
+            float: right;
+
+        }
+        .prices
+        {
+            margin: -10px;
+            margin-right: 1px;
+            float: right;
+            color: #df0e62;
+
+        }
+
+        .hotels .fa {
+            font-size: 13px;
+            color: #df0e62;
+        }
+        .h-details
+        {
+            padding: 20px;
+            text-align: justify;
+            color: black;
+            font-family: 'Fredoka One', cursive;
+        }
+        h5{
+            color: #df0e62;
+        }
+        .fontstyle{
+            color: #df0e62;
+            font-family:'Permanent Marker', cursive;
         }
         .hovereffect {
             width:100%;
@@ -67,28 +84,25 @@
             -webkit-transition:all .4s linear;
             transition:all .4s linear;
         }
-        .rating
-        {
-            border-radius: 5px;
-            padding:2%;
-            margin: -10px;
-            margin-right: 2%;
-            margin-top: 2%;
-            float: right;
+        .nav-color{
 
+            background: linear-gradient(to right, #4e4376, #2b5876);
         }
-        .hotels .fa {
-            font-size: 13px;
-            color: #df0e62;
+        .inside{
+            font-family: 'Beth Ellen', cursive;
         }
-        .h-details
-        {
-            padding: 20px;
-            text-align: justify;
-            color: black;
-            font-family: 'Fredoka One', cursive;
+        #insideh{
+            color:#E4177B;
+            font-family: 'Beth Ellen', cursive;
         }
+        .insider{
+
+            border-left:1px solid #E5E7E9 ;
+            font-family:'Permanent Marker', cursive;
+        }
+
     </style>
+    <link rel="stylesheet" href="css/hotel.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -110,15 +124,15 @@
         <div class="collapse navbar-collapse" id="navbarResponsive">
             <div class="navbar-nav ml-auto ">
                 <div class="nav-item inside dropdown show ">
-                    <a class="btn nav-link"   href="firstpage.html"><b>HOME</b></a>
+                    <a class="btn nav-link" href="firstpage.html"><b>HOME</b></a>
                 </div>
-                <div class="nav-item insider">
-                    <a class="btn nav-link"  href="hotel.html"><b>HOTELS</b></a>
+                <div class="nav-item dropdown insider show">
+                    <a class="btn nav-link"  href="tourist-spot.html"><b>TOURIST SPOTS</b></a>
                 </div>
-                <div class="nav-item insider ">
-                    <a class="btn nav-link" href="flights.html"><b>FLIGHTS</b></a>
+                <div class="nav-item dropdown insider show">
+                    <a class="btn nav-link"  href="flights.html"><b>FLIGHTS</b></a>
                 </div>
-                <div class="nav-item insider ">
+                <div class="nav-item dropdown insider show">
                     <a class="btn nav-link"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" href="#"><b>THINGS TO DO</b></a>
                 </div>
             </div>
@@ -127,43 +141,51 @@
     </div>
 </div>
 <div class="hotels">
-    <h1 class="fontstyle">Tourist spots</h1>
+    <h1 class="fontstyle">Hotels</h1>
     <div id="mainelement" class="container">
         <div id="row0"class="row">
-            <div id="col0"  class="col-md-4 hovereffect">
+            <div id="col0" class="col-md-4 hovereffect">
                     <div id="imgdi0"class="h-img ">
-                        <img onclick="alertcheck(this.id)" id="image0" src="images/login.jpg">
+                        <img onclick="alertcheck(this.id)" id="image0" src="">
                         <div class="rating" id="review0">
                         </div>
-                        <h5 class="fontstyle" id="tou-name0">Tourist Spot</h5>
-
+                        <h5 class="fontstyle" id="h-name0">Hotel Name</h5>
                     </div>
-                    <div id="tou-desc0" class="h-details">
+                    <div  id="price0" class="prices">
+                         <h6></h6>
+                    </div>
+                    <div id="h-desc0" class="h-details">
                         <p></p>
                     </div>
             </div>
+            
             <div id="col1" class="col-md-4 hovereffect">
                     <div id="imgdi1" class="h-img">
-                        <img onclick="alertcheck(this.id)" id="image1" src="images/login.jpg">
+                        <img id="image1" onclick="alertcheck(this.id)" src="">
                         <div class="rating" id="review1">
                         </div>
-                        <h5 class="fontstyle" id="tou-name1">Tourist Spot</h5>
+                        <h5 class="fontstyle" id="h-name1">Hotel Name</h5>
 
                     </div>
-                    <div id="tou-desc1" class="h-details">
+                    <div id="price1" class="prices">
+                         <h6></h6>
+                    </div>
+                    <div id="h-desc1" class="h-details">
                         <p></p>
 
                     </div>
             </div>
             <div id="col2" class="col-md-4 hovereffect">
                     <div id="imgdi2" class="h-img">
-                        <img id="image2" onclick="alertcheck(this.id)" src="images/login.jpg">
+                        <img onclick="alertcheck(this.id)" id="image2" src="">
                         <div class="rating" id="review2">
                         </div>
-                        <h5 class="fontstyle" id="tou-name2">Tourist Spot</h5>
-
+                        <h5 class="fontstyle" id="h-name2">Hotel Name</h5>
                     </div>
-                    <div id="tou-desc2" class="h-details">
+                    <div id="price2" class="prices">
+                         <h6></h6>
+                    </div>
+                    <div id="h-desc2" class="h-details">
                         <p></p>
 
                     </div>
@@ -172,38 +194,47 @@
         <div id="row1"class="row">
             <div id="col3" class="col-md-4 hovereffect">
                     <div id="imgdi3" class="h-img">
-                        <img id="image3"src="images/login.jpg" onclick="alertcheck(this.id)">
+                        <img onclick="alertcheck(this.id)" id="image3"src="">
                         <div class="rating" id="review3">
                         </div>
-                        <h5 class="fontstyle" id="tou-name3">Tourist Spot</h5>
-
+                        <h5 class="fontstyle" id="h-name3">Hotel Name</h5>
                     </div>
-                    <div id="tou-desc3" class="h-details">
+                    <div id="price3" class="prices">
+                        <h6></h6>
+                   </div>
+                    <div id="h-desc3" class="h-details">
                         <p></p>
 
                     </div>
             </div>
             <div id="col4" class="col-md-4 hovereffect">
                 <div id="imgdi4"class="h-img">
-                        <img id="image4" src="images/login.jpg" onclick="alertcheck(this.id)">
+                        <img id="image4" onclick="alertcheck(this.id)" src="">
                         <div class="rating" id="review4">
                         </div>
-                        <h5 class="fontstyle" id="tou-name4">Tourist Spot</h5>
+                        <h5 class="fontstyle" id="h-name4">Hotel Name</h5>
+
                 </div>
-                    <div id="tou-desc4" class="h-details">
+                <div id="price4" class="prices">
+                     <h6></h6>
+                </div>
+                    <div id="h-desc4" class="h-details">
                         <p></p>
 
                     </div>
             </div>
             <div id="col5" class="col-md-4 hovereffect">
                     <div id="imgdi5"class="h-img">
-                        <img id="image5" src="images/login.jpg" onclick="alertcheck(this.id)">
+                        <img onclick="alertcheck(this.id)" id="image5" src="">
                         <div class="rating" id="review5">
                         </div>
-                        <h5 class="fontstyle"id="tou-name5">Tourist Spot</h5>
+                        <h5 class="fontstyle"id="h-name5">Hotel Name</h5>
 
                     </div>
-                    <div id="tou-desc5" class="h-details">
+                    <div id="price5" class="prices">
+                         <h6></h6>
+                    </div>
+                    <div id="h-desc5" class="h-details">
                         <p></p>
 
                     </div>
@@ -225,6 +256,7 @@
 <script src="https://www.gstatic.com/firebasejs/6.2.2/firebase-firestore.js"></script>
 <script src="https://www.gstatic.com/firebasejs/6.2.2/firebase.js"></script>
 <script src="scripts/firebase_initialization.js"></script>
-<script src="scripts/tourist-spot.js"></script>
+<script src="scripts/hotel.js"></script>
+
 </body>
 </html>

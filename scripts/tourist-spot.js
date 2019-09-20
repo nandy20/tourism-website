@@ -58,6 +58,7 @@ document.addEventListener('DOMContentLoaded',function () {
                           document.getElementById('imgdi'+count.toString()).appendChild(imgelement);
                           imgelement.setAttribute('id','image'+count.toString());
                           imgelement.setAttribute('src','touristSpots/chennai/mgm.jpg');
+                          imgelement.setAttribute('onclick','alertcheck(this.id)');
                           imageRef.getDownloadURL().then(function (url) {
                               imgelement.src = url;
                           }).catch(function (error) {
@@ -110,6 +111,7 @@ document.addEventListener('DOMContentLoaded',function () {
                           document.getElementById('imgdi'+count.toString()).appendChild(imgelement);
                           imgelement.setAttribute('id','image'+count.toString());
                           imgelement.setAttribute('src','touristSpots/chennai/mgm.jpg');
+                          imgelement.setAttribute('onclick','alertcheck(this.id)');
                           imageRef.getDownloadURL().then(function (url) {
                               imgelement.src = url;
                           }).catch(function (error) {
@@ -143,13 +145,11 @@ document.addEventListener('DOMContentLoaded',function () {
                           document.getElementById('tou-desc'+count.toString()).innerHTML=doc.data().description;
                       }
                   }
-
                   count++;
               });
       }) ;
-
 });
 function alertcheck(val) {
-    alert(val);
-
+    localStorage.setItem('imgsrc',document.getElementById(val).getAttribute('src'));
+    location.href="hotel_details.html";
 }
