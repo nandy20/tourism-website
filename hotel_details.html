@@ -6,7 +6,7 @@
         body{
             margin:0px;
             padding:0px;
-            background-image: linear-gradient(to right,floralwhite, #93F6FF,floralwhite,#93F6FF,floralwhite);
+            background-image: linear-gradient(to right,#ff4e50,#f9d423);
         }
         #wrapper{
             width:100%
@@ -43,13 +43,13 @@
             top:25%;
         }
         .btn-style{
-            background: grey;
+            background:cornflowerblue;
             float:right;
             width:10%;
             position: relative;
-            bottom: 28%;
+            bottom: 15%;
             margin-right:5%;
-            margin-bottom:5%;
+            margin-bottom:3%;
             color:white;
             border-radius: 5px;
         }
@@ -62,11 +62,13 @@
             margin-top: 5px;
         }
         .main{
-            margin-left: 375px;
-            margin-top: 50px;
+            margin-left: 25%;
+            margin-top: 2%;
         }
         .rating
         {
+            position: relative;
+            left:30%;
             margin-left: 190px;
             margin-top: -31px;
             font-size: 13px;
@@ -128,29 +130,23 @@
 <!-- image slider -->
 <div class="flight-div">
     <div class="flight-align">
-        <input type="text" placeholder="         FROM">
-        <input type="text" placeholder="         TO">
-        <input type="text" placeholder="       No of rooms">
-        <input type="text" placeholder="         No of people">
+        <input type="number" id="from" placeholder="         FROM">
+        <input type="number" id="todate" placeholder="         TO">
+        <input type="number" id="rooms" placeholder="       No of rooms">
+        <input type="text" id="ppl" placeholder="         No of people">
     </div>
-    <button class="btn-style">check availability</button>
+    <button id="checking" class="btn-style">BOOK</button>
 </div>
-<div class="main">
-    <h2 id="hotel-name">Hotel Name</h2>
-    <div class="rating">
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star"></i>
-        <i class="fa fa-star-half-o"></i>
+<div class="main ">
+    <h2 id="hotel-name" class="">Hotel Name</h2>
+    <div id="rating"class="rating">
     </div>
-    <p>1 G S T Road St Thomas Mount, Chennai 600016</p>
+    <p id="address">1 G S T Road St Thomas Mount, Chennai 600016</p>
     <div class="card" style="width:700px">
         <img id="mainimg" class="card-img-top" src="images/login.jpg"  style="width:100%">
         <div class="card-body">
-            <h4 class="price">10580</h4>
-            <p class="card-text" style="margin-top:20px">Le Royal Meridien Chennai exudes grace and charisma offering a promise of unrivalled hospitality.Le Royal Méridien Chennai features meeting and banquet space for up 1,500 guests, five restaurants and bars, a state-of-the-art fitness centre, and a splendid outdoor swimming pool with whirlpool. A travel desk is in the hotel’s lobby assists guests as they experience the sights of Chennai, including the Marina Beach, temple architecture, a vibrant theatre scene, and a five week-long Music Season, one of the world’s largest cultural events.</p>
-            <a href="#" class="btn btn-primary btn-lg btn-block" style="margin-top:20px">Book</a>
+            <h4 id="price" class="price">10580</h4>
+            <p class="card-text" id="desc" style="margin-top:20px">Le Royal Meridien Chennai exudes grace and charisma offering a promise of unrivalled hospitality.Le Royal Méridien Chennai features meeting and banquet space for up 1,500 guests, five restaurants and bars, a state-of-the-art fitness centre, and a splendid outdoor swimming pool with whirlpool. A travel desk is in the hotel’s lobby assists guests as they experience the sights of Chennai, including the Marina Beach, temple architecture, a vibrant theatre scene, and a five week-long Music Season, one of the world’s largest cultural events.</p>
         </div>
     </div>
 </div>

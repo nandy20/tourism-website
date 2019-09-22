@@ -1,13 +1,90 @@
 let db=firebase.firestore();
+let check;
 document.addEventListener('DOMContentLoaded',function () {
    var mainimg=document.getElementById('mainimg');
    mainimg.src=localStorage.getItem('imgsrc');
    var fetch=localStorage.getItem('imgsrc');
+
    db.collection(localStorage.getItem('searchplace')+'-hotel').get().then(function (querySnapshot) {
       querySnapshot.forEach(function (doc) {
-          if(fetch==doc.data().img_urls[0]){
-               document.getElementById('hotel-name').innerHTML=doc.data().title;
+          if(fetch==doc.data().image[0]){
+
+               document.getElementById('hotel-name').innerHTML=doc.data().name;
+               localStorage.setItem('name',doc.data().name);
+               document.getElementById('desc').innerHTML=doc.data().description;
+               document.getElementById('address').innerHTML=doc.data().address;
+               document.getElementById('price').innerHTML=doc.data().price;
+               localStorage.setItem('name',doc.data().name);
+               for(var i=0;i<doc.data().rating;i++) {
+                   let star = document.createElement('li');
+                   document.getElementById('rating').appendChild(star);
+                   star.setAttribute('class', 'fa fa-star');
+               }
+               for(var i=doc.data().rating;i<5;i++){
+                   let star = document.createElement('li');
+                   document.getElementById('rating').appendChild(star);
+                   star.setAttribute('class', 'fa fa-star-o');
+               }
+
           }
       }) ;
    });
 });
+document.getElementById('checking').addEventListener('click',function () {
+    let from = document.getElementById('from');
+    check = 0;
+    let array = [];
+    let i;
+    let todate = document.getElementById('todate');
+    let roomscount = document.getElementById('rooms');
+    let varia = document.getElementById('checking').innerHTML;
+    if (varia == 'BOOK') {
+        db.collection(localStorage.getItem('searchplace') + '-hotel').get().then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+                if (localStorage.getItem('name') == doc.data().name) {
+                    for (i = parseInt(from.value) - 1; i <= parseInt(todate.value) - 1; i++) {
+                        if (doc.data().availability[i] < roomscount.value) {
+                            check = 1;
+                            alert("Rooms Not available!!!");
+                            break;
+                        }
+                    }
+                    display();
+                }
+
+            });
+        });
+    } else if(varia=="Confirm Booking") {
+        let array=[];
+        db.collection(localStorage.getItem('searchplace') + '-hotel').get().then(function (querySnapshot) {
+            querySnapshot.forEach(function (doc) {
+                if (localStorage.getItem('name') == doc.data().name) {
+                    for(i=0;i<parseInt(from.value)-1;i++){
+                         array.push(doc.data().availability[i]);
+                    }
+                    for(i=parseInt(from.value)-1;i<=parseInt(todate.value)-1;i++){
+                         array.push((doc.data().availability[i])-roomscount.value);
+                    }
+                    for(i=parseInt(todate.value);i<30;i++){
+                         array.push(doc.data().availability[i]);
+                    }
+                    db.collection(localStorage.getItem('searchplace') + '-hotel').doc(doc.id).update({
+                       availability:array,
+                    }).then(function () {
+                       alert('Booking Confirmed!!!');
+                        document.getElementById('checking').innerHTML="Booked";
+                        document.getElementById('checking').style.background="green";
+                    });
+                }
+            });
+        });
+    }
+});
+
+
+function display() {
+    if(check==0){
+        alert('Hurray!!Rooms Available, Booking can be made..');
+        document.getElementById('checking').innerHTML="Confirm Booking";
+    }
+}
