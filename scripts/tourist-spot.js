@@ -151,5 +151,6 @@ document.addEventListener('DOMContentLoaded',function () {
 });
 function alertcheck(val) {
     localStorage.setItem('imgsrc',document.getElementById(val).getAttribute('src'));
-    location.href="hotel_details.html";
+    location.href="#";
 }
+

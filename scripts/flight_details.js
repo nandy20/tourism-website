@@ -146,4 +146,5 @@ function booking(val) {
 
 document.getElementById('pay').addEventListener('click',function () {
    alert('Successfully Booked!!');
+   location.href="places.html";
 });

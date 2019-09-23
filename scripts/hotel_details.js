@@ -55,28 +55,37 @@ document.getElementById('checking').addEventListener('click',function () {
             });
         });
     } else if(varia=="Confirm Booking") {
-        let array=[];
-        db.collection(localStorage.getItem('searchplace') + '-hotel').get().then(function (querySnapshot) {
-            querySnapshot.forEach(function (doc) {
-                if (localStorage.getItem('name') == doc.data().name) {
-                    for(i=0;i<parseInt(from.value)-1;i++){
-                         array.push(doc.data().availability[i]);
-                    }
-                    for(i=parseInt(from.value)-1;i<=parseInt(todate.value)-1;i++){
-                         array.push((doc.data().availability[i])-roomscount.value);
-                    }
-                    for(i=parseInt(todate.value);i<30;i++){
-                         array.push(doc.data().availability[i]);
-                    }
-                    db.collection(localStorage.getItem('searchplace') + '-hotel').doc(doc.id).update({
-                       availability:array,
-                    }).then(function () {
-                       alert('Booking Confirmed!!!');
-                        document.getElementById('checking').innerHTML="Booked";
-                        document.getElementById('checking').style.background="green";
+        firebase.auth().onAuthStateChanged(function (user) {
+            if(user){
+                let array=[];
+                db.collection(localStorage.getItem('searchplace') + '-hotel').get().then(function (querySnapshot) {
+                    querySnapshot.forEach(function (doc) {
+                        if (localStorage.getItem('name') == doc.data().name) {
+                            for(i=0;i<parseInt(from.value)-1;i++){
+                                array.push(doc.data().availability[i]);
+                            }
+                            for(i=parseInt(from.value)-1;i<=parseInt(todate.value)-1;i++){
+                                array.push((doc.data().availability[i])-roomscount.value);
+                            }
+                            for(i=parseInt(todate.value);i<30;i++){
+                                array.push(doc.data().availability[i]);
+                            }
+                            db.collection(localStorage.getItem('searchplace') + '-hotel').doc(doc.id).update({
+                                availability:array,
+                            }).then(function () {
+                                alert('Booking Confirmed!!!');
+                                document.getElementById('checking').innerHTML="Booked";
+                                document.getElementById('checking').style.background="green";
+                            });
+                        }
                     });
-                }
-            });
+                });
+            }
+            else{
+
+                alert("Login to make booking!!");
+            }
+
         });
     }
 });
@@ -88,3 +97,14 @@ function display() {
         document.getElementById('checking').innerHTML="Confirm Booking";
     }
 }
+
+document.getElementById('loginpage').addEventListener('click',function () {
+    if(document.getElementById('loginpage').innerHTML=="LOGIN"){
+        location.href='login.html';
+    }
+    else{
+        firebase.auth().signOut().then(function () {
+            alert("logged out");
+        }) ;
+    }
+});
