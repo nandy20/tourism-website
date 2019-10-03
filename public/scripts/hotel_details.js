@@ -39,21 +39,32 @@ document.getElementById('checking').addEventListener('click',function () {
     let roomscount = document.getElementById('rooms');
     let varia = document.getElementById('checking').innerHTML;
     if (varia == 'BOOK') {
-        db.collection(localStorage.getItem('searchplace') + '-hotel').get().then(function (querySnapshot) {
-            querySnapshot.forEach(function (doc) {
-                if (localStorage.getItem('name') == doc.data().name) {
-                    for (i = parseInt(from.value) - 1; i <= parseInt(todate.value) - 1; i++) {
-                        if (doc.data().availability[i] < roomscount.value) {
-                            check = 1;
-                            alert("Rooms Not available!!!");
-                            break;
+        firebase.auth().onAuthStateChanged(function (user) {
+            if(user  ){
+                db.collection(localStorage.getItem('searchplace') + '-hotel').get().then(function (querySnapshot) {
+                    querySnapshot.forEach(function (doc) {
+                        if (localStorage.getItem('name') == doc.data().name) {
+                            for (i = parseInt(from.value) - 1; i <= parseInt(todate.value) - 1; i++) {
+                                if (doc.data().availability[i] < roomscount.value) {
+                                    check = 1;
+                                    alert("Rooms Not available!!!");
+                                    break;
+                                }
+                            }
+                            display();
                         }
-                    }
-                    display();
-                }
 
-            });
+                    });
+                });
+            }
+            else{
+
+                alert("Login to make booking!!");
+                document.getElementById('checking').innerHTML="BOOK";
+            }
+
         });
+
     } else if(varia=="Confirm Booking") {
         firebase.auth().onAuthStateChanged(function (user) {
             if(user){
@@ -97,7 +108,9 @@ function display() {
         document.getElementById('checking').innerHTML="Confirm Booking";
     }
 }
-
+function touristpage(val){
+    alert(val);
+}
 document.getElementById('loginpage').addEventListener('click',function () {
     if(document.getElementById('loginpage').innerHTML=="LOGIN"){
         location.href='login.html';

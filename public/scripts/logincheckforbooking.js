@@ -8,18 +8,6 @@ firebase.auth().onAuthStateChanged(function (user) {
     }
 
 });
-document.getElementById('hotelpage').addEventListener('click',function () {
-    firebase.auth().onAuthStateChanged(function (user) {
-        if(user){
-            location.href="hotel.html";
-        }
-        else{
-
-            alert("Login to make booking!!");
-        }
-
-    });
-});
 
 document.getElementById('loginpage').addEventListener('click',function () {
     if(document.getElementById('loginpage').innerHTML=="LOGIN"){
